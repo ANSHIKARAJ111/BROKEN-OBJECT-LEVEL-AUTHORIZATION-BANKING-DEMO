@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login · SecureBank Demo</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="auth-shell">
+    <div class="auth-visual">
+      <div class="auth-visual-grid"></div>
+      <div class="visual-content">
+        <div class="brand-mark">
+          <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+            <rect width="32" height="32" rx="8" fill="#3b82f6"/>
+            <path d="M16 6l9 4v6c0 6-3.8 10.3-9 12-5.2-1.7-9-6-9-12v-6l9-4z" fill="#0b1220"/>
+            <path d="M16 9l6 2.7v4c0 4.2-2.6 7.2-6 8.4-3.4-1.2-6-4.2-6-8.4v-4L16 9z" fill="#60a5fa"/>
+          </svg>
+          <span>SecureBank Demo</span>
+        </div>
+
+        <h1>See how a broken<br />authorization check leaks data.</h1>
+        <p>
+          A hands-on Broken Object-Level Authorization (BOLA/IDOR) demo &mdash;
+          log in, tamper with an account id, inspect the raw request and
+          response, then flip the backend between vulnerable and hardened
+          with one click.
+        </p>
+
+        <ul class="feature-list">
+          <li>
+            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.2" opacity="0.35"/>
+              <path d="M6 10.2l2.4 2.4L14.2 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            JWT-authenticated sessions
+          </li>
+          <li>
+            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.2" opacity="0.35"/>
+              <path d="M6 10.2l2.4 2.4L14.2 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Live vulnerable / secure mode toggle, no restart needed
+          </li>
+          <li>
+            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.2" opacity="0.35"/>
+              <path d="M6 10.2l2.4 2.4L14.2 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Built-in request &amp; response inspector
+          </li>
+          <li>
+            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.2" opacity="0.35"/>
+              <path d="M6 10.2l2.4 2.4L14.2 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Access log records every allowed and blocked attempt
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="auth-form-side">
+      <div class="card">
+        <div class="brand-mark">
+          <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+            <rect width="32" height="32" rx="8" fill="#3b82f6"/>
+            <path d="M16 6l9 4v6c0 6-3.8 10.3-9 12-5.2-1.7-9-6-9-12v-6l9-4z" fill="#0b1220"/>
+            <path d="M16 9l6 2.7v4c0 4.2-2.6 7.2-6 8.4-3.4-1.2-6-4.2-6-8.4v-4L16 9z" fill="#60a5fa"/>
+          </svg>
+          <span>SecureBank Demo</span>
+        </div>
+        <h1>Welcome back</h1>
+        <div class="subtitle">Sign in to view your accounts</div>
+
+        <form id="login-form">
+          <label for="username">Username</label>
+          <input type="text" id="username" autocomplete="username" required />
+
+          <label for="password">Password</label>
+          <input type="password" id="password" autocomplete="current-password" required />
+
+          <button type="submit" class="btn-primary">Log In</button>
+          <div class="error-msg" id="error-msg"></div>
+        </form>
+
+        <div class="footer-link">
+          No account? <a class="link" href="signup.html">Sign up</a>
+        </div>
+
+        <div class="hint">
+          Demo users (seeded): <code>alice / AlicePass123!</code> and
+          <code>bob / BobPass123!</code>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

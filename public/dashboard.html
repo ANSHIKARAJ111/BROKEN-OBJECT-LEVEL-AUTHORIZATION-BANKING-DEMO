@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard · SecureBank Demo</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-left">
+      <div class="brand">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+          <rect width="32" height="32" rx="8" fill="#3b82f6"/>
+          <path d="M16 6l9 4v6c0 6-3.8 10.3-9 12-5.2-1.7-9-6-9-12v-6l9-4z" fill="#0b1220"/>
+          <path d="M16 9l6 2.7v4c0 4.2-2.6 7.2-6 8.4-3.4-1.2-6-4.2-6-8.4v-4L16 9z" fill="#60a5fa"/>
+        </svg>
+        <span>SecureBank Demo</span>
+      </div>
+      <nav class="topnav">
+        <a class="active" href="dashboard.html">Dashboard</a>
+        <a href="security-log.html">Security Log</a>
+      </nav>
+    </div>
+    <div class="user-info">
+      <span id="mode-badge" class="mode-badge">…</span>
+      <button class="btn-secondary" id="mode-toggle-btn" title="Switch AUTHZ_MODE live, no restart needed">Switch mode</button>
+      <span id="welcome-text"></span>
+      <button class="btn-secondary" id="logout-btn">Log out</button>
+    </div>
+  </div>
+
+  <main>
+    <div id="warn-banner"></div>
+
+    <h1 id="greeting" class="page-greeting">Welcome back</h1>
+    <div class="section-desc">Here's what's happening across your accounts today.</div>
+
+    <div class="stats-grid" id="stats-grid"></div>
+
+    <section class="dash-section">
+      <h2>Your Accounts</h2>
+      <div class="section-desc">
+        Fetched from <code>GET /api/accounts</code>, which is always filtered
+        to the logged-in user &mdash; click one to view its transactions.
+      </div>
+      <div class="account-grid" id="account-grid"></div>
+    </section>
+
+    <section class="dash-section">
+      <h2>Recent Activity</h2>
+      <div class="section-desc">Latest transactions across all of your accounts.</div>
+      <table id="activity-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Account</th>
+            <th>Description</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody id="activity-body"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

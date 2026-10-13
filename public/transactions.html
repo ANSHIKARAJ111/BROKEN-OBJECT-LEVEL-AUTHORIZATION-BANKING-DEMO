@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transactions · SecureBank Demo</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-left">
+      <div class="brand">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+          <rect width="32" height="32" rx="8" fill="#3b82f6"/>
+          <path d="M16 6l9 4v6c0 6-3.8 10.3-9 12-5.2-1.7-9-6-9-12v-6l9-4z" fill="#0b1220"/>
+          <path d="M16 9l6 2.7v4c0 4.2-2.6 7.2-6 8.4-3.4-1.2-6-4.2-6-8.4v-4L16 9z" fill="#60a5fa"/>
+        </svg>
+        <span>SecureBank Demo</span>
+      </div>
+      <nav class="topnav">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="security-log.html">Security Log</a>
+      </nav>
+    </div>
+    <div class="user-info">
+      <span id="mode-badge" class="mode-badge">…</span>
+      <button class="btn-secondary" id="mode-toggle-btn" title="Switch AUTHZ_MODE live, no restart needed">Switch mode</button>
+      <span id="welcome-text"></span>
+      <button class="btn-secondary" id="logout-btn">Log out</button>
+    </div>
+  </div>
+
+  <main>
+    <a class="link back-link" href="dashboard.html">&larr; Back to dashboard</a>
+
+    <div id="warn-banner"></div>
+
+    <div class="explore-box">
+      <h3>IDOR / BOLA test: request any account id</h3>
+      <div class="explore-row">
+        <div>
+          <label for="explore-id">Account ID</label>
+          <input type="number" id="explore-id" placeholder="e.g. 1" />
+        </div>
+        <button class="btn-secondary" id="explore-btn">Load transactions</button>
+      </div>
+      <div class="error-msg" id="explore-error"></div>
+
+      <div class="inspector" id="inspector" hidden>
+        <div class="inspector-row">
+          <span class="inspector-method">GET</span>
+          <span class="inspector-url" id="inspector-url"></span>
+          <span class="inspector-status" id="inspector-status"></span>
+        </div>
+        <pre class="inspector-body" id="inspector-body"></pre>
+      </div>
+    </div>
+
+    <h2 id="account-title">Account</h2>
+    <div class="section-desc" id="account-desc"></div>
+
+    <table id="txn-table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Description</th>
+          <th>Type</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody id="txn-body"></tbody>
+    </table>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/transactions.js"></script>
+</body>
+</html>
